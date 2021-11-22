@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import { useEffect } from "react";
+import styled, { keyframes } from "styled-components";
 import { Container, flexCenter, theme } from "../../styles/theme";
 
 const projects = [
@@ -125,6 +126,21 @@ const projects = [
 ];
 
 const Project = () => {
+  useEffect(() => {
+    const handleScroll = () => {
+      const title1 = document.querySelector(".title-opacity")!;
+
+      if (window.scrollY > 3500) {
+        title1.classList.add("project-title-animation");
+      } else {
+        title1.classList.remove("project-title-animation");
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <Wrapper>
       <div className="title-opacity">
@@ -154,11 +170,23 @@ const Project = () => {
   );
 };
 
+const titleAnimation = keyframes`
+  0% {
+    margin-top: 100rem;
+  }
+  100% {
+    margin-top: 0;
+  }
+`;
 const Wrapper = styled(Container)`
   margin-top: 35rem;
   position: relative;
   ${flexCenter};
+  .project-title-animation {
+    animation: ${titleAnimation} 2s forwards;
+  }
   .title-opacity {
+    margin-top: 20rem;
     width: 100%;
     ${flexCenter};
     justify-content: space-between;
@@ -196,11 +224,9 @@ const Wrapper = styled(Container)`
         border-radius: 1rem;
         justify-self: center;
         cursor: pointer;
-        border: 0.1rem solid transparent;
         padding: 1.3rem;
         box-sizing: border-box;
         &:hover {
-          border: 0.1rem solid rgba(255, 94, 94, 0.5);
           .title {
             color: ${theme.color.blue};
           }
@@ -210,8 +236,6 @@ const Wrapper = styled(Container)`
           font-size: 14px;
           line-height: 17px;
           margin-bottom: 0.5rem;
-        }
-        .content {
         }
       }
     }

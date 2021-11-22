@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import "./reset.scss";
-import { theme } from "./theme";
+import { flexCenter, media, theme } from "./theme";
 
 export const GlobalStyle = createGlobalStyle`
     :focus {
@@ -25,6 +25,31 @@ export const GlobalStyle = createGlobalStyle`
         user-select: none;
         body {
             margin: 0;
+        }
+        .App {
+            ${media.tablet} {
+                display: none;
+            }
+        }
+        .none {
+            display: none;
+            
+            ${media.tablet} {
+                display: block;
+                ${flexCenter};
+                width: 100%;
+                height: 100vh;
+                font-size: 10rem;
+                font-weight: 900;
+                white-space: pre-wrap;
+                padding: 2rem;
+                box-sizing: border-box;
+                svg {
+                    position: absolute;
+                    bottom: 2rem;
+                    right: 2rem;
+                }   
+            }
         }
     }
 `;

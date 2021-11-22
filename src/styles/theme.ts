@@ -20,3 +20,12 @@ export const theme: DefaultTheme = {
     white: "#FFFFFF",
   },
 };
+
+const customMediaQuery = (maxWidth: number): string =>
+  `@media (max-width: ${maxWidth}px)`;
+export const media = {
+  custom: customMediaQuery,
+  // laptop: customMediaQuery(1440),
+  tablet: customMediaQuery(1234),
+  // mobile: customMediaQuery(420),
+};

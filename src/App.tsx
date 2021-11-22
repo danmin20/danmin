@@ -14,18 +14,27 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      {slider ? (
-        <Slider />
-      ) : (
-        <>
-          <Main />
-          <Intro />
-          <Record />
-          <Project />
-        </>
-      )}
-    </div>
+    <>
+      <div className="App">
+        {slider ? (
+          <Slider />
+        ) : (
+          <>
+            <Main />
+            <Intro />
+            <Record />
+            <Project />
+          </>
+        )}
+      </div>
+      <div className="none">
+        <div>{`PleaSe
+ aCCeSS
+  On a
+   Wider
+    SCreen.`}</div>
+      </div>
+    </>
   );
 }
 
