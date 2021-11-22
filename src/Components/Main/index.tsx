@@ -5,9 +5,15 @@ import { Container, theme } from "../../styles/theme";
 
 const links = [
   { id: "github", link: "https://github.com/danmin20" },
-  { id: "blog", link: "https://github.com/danmin20" },
-  { id: "resume", link: "https://github.com/danmin20" },
-  { id: "linkedin", link: "https://github.com/danmin20" },
+  { id: "blog", link: "https://velog.io/@danmin20" },
+  {
+    id: "resume",
+    link: "https://danmin20.notion.site/Resume-fb4101f716404d17a4af40b721f4b9c6",
+  },
+  {
+    id: "linkedin",
+    link: "https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%9D%B4-1927881a8/",
+  },
 ];
 
 const infos = [
@@ -51,7 +57,7 @@ JEONGMIN`}</div>
 
       <div className="links">
         {links.map((link, i) => (
-          <Link key={link.id} idx={i}>
+          <Link key={link.id} idx={i} onClick={() => window.open(link.link)}>
             {link.id}
           </Link>
         ))}

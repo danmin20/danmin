@@ -7,121 +7,121 @@ const projects = [
     id: "Gathering places near you",
     kr: "당장모아",
     content: "A service where you can curate and share places by region.",
-    link: "",
+    link: "https://github.com/karrotmvp/mymap",
   },
   {
     id: "ET’s Stationery",
     kr: "ET네 만물상",
     content: "A service where you can curate and share places by region.",
-    link: "",
+    link: "https://github.com/woowa-techcamp-2021/store-7",
   },
   {
     id: "Woowahan account book",
     kr: "우아한 가계부",
     content: "A service where you can curate and share places by region.",
-    link: "",
+    link: "https://github.com/woowa-techcamp-2021/cashbook-14",
   },
   {
     id: "Woowa market",
     kr: "우아마켓",
     content: "A service where you can curate and share places by region.",
-    link: "",
+    link: "https://github.com/woowa-techcamp-2021/deal-12",
   },
   {
     id: "Reservation/order history map",
     kr: "예약/주문 방문이력 지도 탐색",
     content: "A service where you can curate and share places by region.",
-    link: "",
+    link: "https://www.notion.so/danmin20/NAVER-Glace-PPT-8b11aee3987e4742be61ce92a1769385",
   },
   {
     id: "SpaceONE design system",
     kr: "SpaceONE 디자인시스템 개선",
     content: "A service where you can curate and share places by region.",
-    link: "",
+    link: "https://github.com/spaceone-dev/spaceone-design-system",
   },
   {
     id: "SpaceONE project site",
     kr: "SpceONE 프로젝트 사이트",
     content: "A service where you can curate and share places by region.",
-    link: "",
+    link: "https://github.com/spaceone-dev/project-site",
   },
   {
     id: "SpaceONE console",
     kr: "SpaceONE 콘솔 개선 및 버그픽스",
     content: "A service where you can curate and share places by region.",
-    link: "",
+    link: "https://github.com/spaceone-dev/console",
   },
   {
     id: "Cookie parking",
     kr: "쿠키파킹",
     content: "A service where you can curate and share places by region.",
-    link: "",
+    link: "https://www.cookieparking.com/landing",
   },
   {
     id: "Avocado",
     kr: "아보카도",
     content: "A service where you can curate and share places by region.",
-    link: "",
+    link: "https://github.com/depromeet/8th-final-front-6team",
   },
   {
     id: "FMS admin website",
     kr: "fms 어드민 웹사이트",
     content: "A service where you can curate and share places by region.",
-    link: "",
+    // link: "",
   },
   {
     id: "FMS web app for workers ",
     kr: "fms 근무자용 웹앱",
     content: "A service where you can curate and share places by region.",
-    link: "",
+    // link: "",
   },
   {
     id: "My Book",
     kr: "마이북",
     content: "A service where you can curate and share places by region.",
-    link: "",
+    link: "https://github.com/danmin20/MyBook-app",
   },
   {
     id: "My Movie",
     kr: "마이무비",
     content: "A service where you can curate and share places by region.",
-    link: "",
+    link: "https://github.com/danmin20/MyMovie-web",
   },
   {
     id: "To Do",
     kr: "투두",
     content: "A service where you can curate and share places by region.",
-    link: "",
+    link: "https://github.com/danmin20/todo_app",
   },
   {
     id: "Whether Wheather",
     kr: "웨더웨더",
     content: "A service where you can curate and share places by region.",
-    link: "",
+    link: "https://github.com/danmin20/weather_app",
   },
   {
     id: "Depromeet website",
     kr: "디프만 공식 웹사이트",
     content: "A service where you can curate and share places by region.",
-    link: "",
+    link: "https://github.com/depromeet/www.depromeet.com",
   },
   {
     id: "Gif generator",
     kr: "Gif 생성 서비스",
     content: "A service where you can curate and share places by region.",
-    link: "",
+    link: "https://github.com/danmin20/gif-generator",
   },
   {
     id: "Galge",
     kr: "가글: 가까운 글",
     content: "A service where you can curate and share places by region.",
-    link: "",
+    link: "https://github.com/depromeet/88mingup",
   },
   {
     id: "Tomatto",
     kr: "토맛토",
     content: "A service where you can curate and share places by region.",
-    link: "",
+    link: "https://github.com/depromeet/9th_1team_FE",
   },
 ];
 
@@ -157,11 +157,15 @@ const Project = () => {
 
         <div className="projects">
           {projects.map((project) => (
-            <div className="box">
+            <ProjectBox
+              className="box"
+              link={project.link ? true : false}
+              onClick={() => project.link && window.open(project.link)}
+            >
               <div className="title">{project.id}</div>
               <div className="title">{project.kr}</div>
               <div className="content">{project.content}</div>
-            </div>
+            </ProjectBox>
           ))}
         </div>
         <div className="copyright">Copyright © 2021 Lee Jeongmin</div>
@@ -176,6 +180,14 @@ const titleAnimation = keyframes`
   }
   100% {
     margin-top: 0;
+  }
+`;
+const ProjectBox = styled.div<{ link: boolean }>`
+  cursor: ${({ link }) => (link ? "pointer" : "default")};
+  &:hover {
+    .title {
+      color: ${({ link }) => (link ? theme.color.blue : "#fff")};
+    }
   }
 `;
 const Wrapper = styled(Container)`
@@ -223,14 +235,9 @@ const Wrapper = styled(Container)`
         }
         border-radius: 1rem;
         justify-self: center;
-        cursor: pointer;
         padding: 1.3rem;
         box-sizing: border-box;
-        &:hover {
-          .title {
-            color: ${theme.color.blue};
-          }
-        }
+
         .title {
           font-weight: 500;
           font-size: 14px;
