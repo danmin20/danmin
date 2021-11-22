@@ -15,7 +15,7 @@ const infos = [
   { id: "Residence", value: "Seoul, South Korea" },
   {
     id: "Bachelor Degree",
-    value: "Kyeonghee Univ. Computer Science (2018.03-2021.02)",
+    value: "Kyeonghee Univ. Computer Science (2018.03-2022.02)",
   },
 ];
 
@@ -78,7 +78,7 @@ const Wrapper = styled(Container)`
       font-weight: 300;
       font-size: 1.8rem;
       line-height: 2.2rem;
-      border-bottom: 0.1rem solid ${theme.color.black};
+      border-bottom: 0.1rem solid transparent;
       &:hover {
         color: ${theme.color.red};
         border-bottom: 0.1rem solid ${theme.color.red};

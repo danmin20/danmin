@@ -175,7 +175,7 @@ const Title = styled.div<{ title: string }>`
     left: -0.4rem;
     top: -0.4rem;
     -webkit-text-stroke: 0.1rem ${theme.color.red};
-    opacity: 0.5;
+    opacity: 0.7;
   }
   ::before {
     content: "${({ title }) => `${title}`}";
@@ -183,7 +183,7 @@ const Title = styled.div<{ title: string }>`
     left: 0.4rem;
     top: 0.4rem;
     -webkit-text-stroke: 0.1rem ${theme.color.blue};
-    opacity: 0.5;
+    opacity: 0.7;
   }
 `;
 
