@@ -32,6 +32,7 @@ const Wrapper = styled(Container)`
     width: 97.1rem;
     &:nth-child(2) {
       text-align: center;
+      font-weight: 500;
     }
   }
 `;

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Danmin } from "../../assets";
 import { Container, theme } from "../../styles/theme";
 
@@ -47,6 +47,23 @@ JEONGMIN`}</div>
   );
 };
 
+const titleAnimation = keyframes`
+  0% {
+    margin-left: 100%;
+  }
+  100% {
+    margin-left: 0;
+  }
+`;
+const titleAnimation2 = keyframes`
+  0% {
+    margin-left: -100%;
+  }
+  100% {
+    margin-right: 0;
+  }
+`;
+
 const Wrapper = styled(Container)`
   padding-top: 9rem;
   position: relative;
@@ -61,10 +78,12 @@ const Wrapper = styled(Container)`
     line-height: 17.6rem;
     letter-spacing: 0.12em;
     white-space: pre-line;
+    animation: ${titleAnimation} 0.5s;
     &:nth-child(3) {
       text-align: end;
       -webkit-text-stroke: 0.1rem #fff;
       color: transparent;
+      animation: ${titleAnimation2} 0.5s;
     }
   }
   .links {

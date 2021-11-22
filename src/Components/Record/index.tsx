@@ -116,6 +116,9 @@ const Record = () => {
 const Wrapper = styled(Container)`
   .container {
     width: 100%;
+    height: 70rem;
+    position: sticky;
+    top: 2rem;
     .box {
       width: 35rem;
       margin-top: 5rem;

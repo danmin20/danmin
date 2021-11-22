@@ -15,11 +15,16 @@ function App() {
 
   return (
     <div className="App">
-      {slider && <Slider />}
-      <Main />
-      <Intro />
-      <Record />
-      <Project />
+      {slider ? (
+        <Slider />
+      ) : (
+        <>
+          <Main />
+          <Intro />
+          <Record />
+          <Project />
+        </>
+      )}
     </div>
   );
 }
