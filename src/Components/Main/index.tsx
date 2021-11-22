@@ -49,8 +49,9 @@ JEONGMIN`}</div>
 
 const Wrapper = styled(Container)`
   padding-top: 9rem;
+  position: relative;
   svg {
-    position: fixed;
+    position: absolute;
     right: 5rem;
   }
   .title {
@@ -67,7 +68,7 @@ const Wrapper = styled(Container)`
     }
   }
   .links {
-    margin-top: 8.9rem;
+    margin-top: 7rem;
     display: flex;
     gap: 1.5rem;
     padding-bottom: 1.4rem;
@@ -85,7 +86,7 @@ const Wrapper = styled(Container)`
     }
   }
   .info {
-    margin-top: 5rem;
+    margin-top: 4rem;
     font-weight: 500;
     font-size: 1.8rem;
     line-height: 2.2rem;
