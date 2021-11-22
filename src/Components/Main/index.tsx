@@ -64,7 +64,7 @@ const Wrapper = styled(Container)`
     &:nth-child(3) {
       text-align: end;
       -webkit-text-stroke: 0.1rem #fff;
-      color: #000;
+      color: transparent;
     }
   }
   .links {
