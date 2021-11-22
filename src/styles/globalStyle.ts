@@ -13,12 +13,12 @@ export const GlobalStyle = createGlobalStyle`
     html {
         font-size: 10px;
         -webkit-text-size-adjust: none;
-        font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+        font-family: Montserrat;
         font-display: fallback;
         -ms-overflow-style: none;
         scrollbar-width: none;
-        color: ${theme.color.black};
-        background-color: #FFFFFF;
+        color: ${theme.color.white};
+        background-color: ${theme.color.black};
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
