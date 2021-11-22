@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Container, flexCenter, theme } from "../../styles/theme";
+import { Container, flexCenter } from "../../styles/theme";
 
 const records = [
   {
@@ -170,14 +170,14 @@ const Title = styled.div<{ title: string }>`
   font-size: 6.4rem;
   line-height: 7.8rem;
   color: transparent;
-  -webkit-text-stroke: 0.1rem #fff;
+  -webkit-text-stroke: 0.1rem ${({ theme }) => theme.color.white};
   position: relative;
   ::after {
     content: "${({ title }) => `${title}`}";
     position: absolute;
     left: -0.4rem;
     top: -0.4rem;
-    -webkit-text-stroke: 0.1rem ${theme.color.red};
+    -webkit-text-stroke: 0.1rem ${({ theme }) => theme.color.red};
     opacity: 0.7;
   }
   ::before {
@@ -185,7 +185,7 @@ const Title = styled.div<{ title: string }>`
     position: absolute;
     left: 0.4rem;
     top: 0.4rem;
-    -webkit-text-stroke: 0.1rem ${theme.color.blue};
+    -webkit-text-stroke: 0.1rem ${({ theme }) => theme.color.blue};
     opacity: 0.7;
   }
 `;

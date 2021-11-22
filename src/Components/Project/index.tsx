@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import styled, { keyframes } from "styled-components";
-import { Container, flexCenter, theme } from "../../styles/theme";
+import { Container, flexCenter } from "../../styles/theme";
 
 const projects = [
   {
@@ -179,19 +179,21 @@ const titleAnimation = keyframes`
     margin-top: 100rem;
   }
   100% {
-    margin-top: 0;
+    margin-top: -100rem;
   }
 `;
 const ProjectBox = styled.div<{ link: boolean }>`
   cursor: ${({ link }) => (link ? "pointer" : "default")};
   &:hover {
     .title {
-      color: ${({ link }) => (link ? theme.color.blue : "#fff")};
+      color: ${({ link, theme }) =>
+        link ? theme.color.blue : theme.color.white};
     }
   }
 `;
 const Wrapper = styled(Container)`
   margin-top: 35rem;
+  height: 120rem;
   position: relative;
   ${flexCenter};
   .project-title-animation {

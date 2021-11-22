@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 import { Danmin } from "../../assets";
-import { Container, theme } from "../../styles/theme";
+import { Container } from "../../styles/theme";
 
 const links = [
   { id: "github", link: "https://github.com/danmin20" },
@@ -104,7 +104,7 @@ const fadeIn = keyframes`
 `;
 
 const Link = styled.div<{ idx: number }>`
-  color: ${theme.color.blue};
+  color: ${({ theme }) => theme.color.blue};
   font-weight: 300;
   font-size: 1.8rem;
   line-height: 2.2rem;
@@ -114,8 +114,8 @@ const Link = styled.div<{ idx: number }>`
   transition: 0.3s;
 
   &:hover {
-    color: ${theme.color.red};
-    border-bottom: 0.1rem solid ${theme.color.red};
+    color: ${({ theme }) => theme.color.red};
+    border-bottom: 0.1rem solid ${({ theme }) => theme.color.red};
     transition: 0.3s;
   }
 `;
@@ -149,7 +149,7 @@ const Wrapper = styled(Container)`
     animation: ${titleAnimation} 0.5s;
     &:nth-child(3) {
       text-align: end;
-      -webkit-text-stroke: 0.1rem #fff;
+      -webkit-text-stroke: 0.1rem ${({ theme }) => theme.color.white};
       color: transparent;
       animation: ${titleAnimation2} 0.5s;
     }

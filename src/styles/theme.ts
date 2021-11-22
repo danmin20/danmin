@@ -12,12 +12,20 @@ export const Container = styled.div`
   box-sizing: border-box;
 `;
 
-export const theme: DefaultTheme = {
+export const darkTheme: DefaultTheme = {
   color: {
     black: "#000000",
     blue: "#3EFFFF",
     red: "#FF5E5E",
     white: "#FFFFFF",
+  },
+};
+export const lightTheme: DefaultTheme = {
+  color: {
+    black: "#FFFFFF",
+    blue: "#3EFFFF",
+    red: "#FF5E5E",
+    white: "#000000",
   },
 };
 

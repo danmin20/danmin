@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import "./reset.scss";
-import { flexCenter, media, theme } from "./theme";
+import { flexCenter, media } from "./theme";
 
 export const GlobalStyle = createGlobalStyle`
     :focus {
@@ -17,8 +17,6 @@ export const GlobalStyle = createGlobalStyle`
         font-display: fallback;
         -ms-overflow-style: none;
         scrollbar-width: none;
-        color: ${theme.color.white};
-        background-color: ${theme.color.black};
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;

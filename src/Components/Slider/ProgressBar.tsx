@@ -1,5 +1,4 @@
 import styled, { keyframes } from "styled-components";
-import { theme } from "../../styles/theme";
 
 const ProgressBar = () => (
   <Wrapper>
@@ -30,15 +29,15 @@ const Progress = styled.div`
   height: 0.1rem;
   position: absolute;
   animation: ${progress} 1s;
-  background: #fff;
-  background: ${theme.color.white};
+  background: ${({ theme }) => theme.color.white};
+  background: ${({ theme }) => theme.color.white};
   &:nth-child(2) {
     animation-delay: 1s;
-    background: ${theme.color.blue};
+    background: ${({ theme }) => theme.color.blue};
   }
   &:nth-child(3) {
     animation-delay: 2s;
-    background: ${theme.color.red};
+    background: ${({ theme }) => theme.color.red};
   }
 `;
 
