@@ -11,6 +11,9 @@ export const GlobalStyle = createGlobalStyle`
         display: none;
     }
     html {
+        ${media.tablet} {
+            font-size: 5px;
+        }
         font-size: 10px;
         -webkit-text-size-adjust: none;
         font-family: Montserrat;
@@ -42,11 +45,6 @@ export const GlobalStyle = createGlobalStyle`
                 white-space: pre-wrap;
                 padding: 2rem;
                 box-sizing: border-box;
-                svg {
-                    position: absolute;
-                    bottom: 2rem;
-                    right: 2rem;
-                }   
             }
         }
     }

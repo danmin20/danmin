@@ -8,7 +8,7 @@ const Intro = () => {
       const element = document.querySelector("#intro")!;
       const divs = element.querySelectorAll("div");
 
-      window.scrollY > 100
+      window.scrollY > 150
         ? divs.forEach((div, i) => {
             div.classList.add("animation");
             div.style.animationDelay = `${i}s`;

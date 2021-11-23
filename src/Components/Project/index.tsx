@@ -158,12 +158,12 @@ const Project = () => {
         <div className="projects">
           {projects.map((project) => (
             <ProjectBox
-              className="box"
+              // className="box"
               link={project.link ? true : false}
               onClick={() => project.link && window.open(project.link)}
             >
-              <div className="title">{project.id}</div>
-              <div className="title">{project.kr}</div>
+              <div className="project-title">{project.id}</div>
+              <div className="project-title">{project.kr}</div>
               <div className="content">{project.content}</div>
             </ProjectBox>
           ))}
@@ -179,21 +179,14 @@ const titleAnimation = keyframes`
     margin-top: 100rem;
   }
   100% {
-    margin-top: -100rem;
+    margin-top: -90rem;
   }
 `;
-const ProjectBox = styled.div<{ link: boolean }>`
-  cursor: ${({ link }) => (link ? "pointer" : "default")};
-  &:hover {
-    .title {
-      color: ${({ link, theme }) =>
-        link ? theme.color.blue : theme.color.white};
-    }
-  }
-`;
+
 const Wrapper = styled(Container)`
   margin-top: 35rem;
-  height: 120rem;
+  height: 110rem;
+  overflow: hidden;
   position: relative;
   ${flexCenter};
   .project-title-animation {
@@ -207,7 +200,12 @@ const Wrapper = styled(Container)`
     font-weight: 900;
     font-size: 14.4rem;
     line-height: 17.6rem;
-    opacity: 0.15;
+    opacity: 0.2;
+    background: ${({ theme }) =>
+      `linear-gradient(to right, ${theme.color.blue}, ${theme.color.red})`};
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   .container {
     position: absolute;
@@ -231,21 +229,6 @@ const Wrapper = styled(Container)`
       margin-top: 7rem;
       padding-bottom: 20rem;
       .box {
-        div {
-          width: 100%;
-          text-align: start;
-        }
-        border-radius: 1rem;
-        justify-self: center;
-        padding: 1.3rem;
-        box-sizing: border-box;
-
-        .title {
-          font-weight: 500;
-          font-size: 14px;
-          line-height: 17px;
-          margin-bottom: 0.5rem;
-        }
       }
     }
   }
@@ -256,6 +239,36 @@ const Wrapper = styled(Container)`
     font-weight: 300;
     font-size: 1.4rem;
     line-height: 1.7rem;
+  }
+`;
+
+const ProjectBox = styled.div<{ link: boolean }>`
+  cursor: ${({ link }) => (link ? "pointer" : "default")};
+  div {
+    width: 100%;
+    text-align: start;
+  }
+  justify-self: center;
+  padding: 1.3rem 0;
+  box-sizing: border-box;
+  border-bottom: 0.1rem solid transparent;
+  .project-title {
+    transition: 0.3s;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 0.5rem;
+  }
+  transition: 0.3s;
+  &:hover {
+    transition: 0.3s;
+    border-bottom: 0.1rem solid
+      ${({ link, theme }) => (link ? theme.color.red : "transparent")};
+    .project-title {
+      transition: 0.3s;
+      color: ${({ link, theme }) =>
+        link ? theme.color.blue : theme.color.white};
+    }
   }
 `;
 

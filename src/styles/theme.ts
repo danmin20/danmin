@@ -10,6 +10,7 @@ export const Container = styled.div`
   width: 100%;
   padding: 0 4.2rem;
   box-sizing: border-box;
+  max-width: 144rem;
 `;
 
 export const darkTheme: DefaultTheme = {
@@ -23,8 +24,8 @@ export const darkTheme: DefaultTheme = {
 export const lightTheme: DefaultTheme = {
   color: {
     black: "#FFFFFF",
-    blue: "#3EFFFF",
-    red: "#FF5E5E",
+    blue: "#6400ff",
+    red: "#00ff50",
     white: "#000000",
   },
 };

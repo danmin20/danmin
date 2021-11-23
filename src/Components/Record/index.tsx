@@ -118,7 +118,7 @@ const Wrapper = styled(Container)`
     width: 100%;
     height: 70rem;
     position: sticky;
-    top: 2rem;
+    top: 10rem;
     .box {
       width: 35rem;
       margin-top: 5rem;

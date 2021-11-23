@@ -4,7 +4,7 @@ import Main from "./Components/Main";
 import Project from "./Components/Project";
 import Record from "./Components/Record";
 import Slider from "./Components/Slider";
-import { lightTheme, darkTheme } from "./styles/theme";
+import { lightTheme, darkTheme, flexCenter } from "./styles/theme";
 import styled, { ThemeProvider } from "styled-components";
 
 function App() {
@@ -26,25 +26,27 @@ function App() {
       <ThemeToggle onClick={handleTheme} isDark={theme === "dark"}>
         {theme === "dark" ? "LIGHT MODE" : "DARK MODE"}
       </ThemeToggle>
-      <AppContainer className="App">
-        {slider ? (
-          <Slider />
-        ) : (
-          <>
-            <Main />
-            <Intro />
-            <Record />
-            <Project />
-          </>
-        )}
-      </AppContainer>
-      <div className="none">
-        <div>{`PleaSe
+      <AppContainer>
+        <div className="App">
+          {slider ? (
+            <Slider />
+          ) : (
+            <div className="wrapper">
+              <Main />
+              <Intro />
+              <Record />
+              <Project />
+            </div>
+          )}
+        </div>
+        <div className="none">
+          <div>{`PleaSe
  aCCeSS
   On a
    Wider
     SCreen.`}</div>
-      </div>
+        </div>
+      </AppContainer>
     </ThemeProvider>
   );
 }
@@ -52,6 +54,10 @@ function App() {
 const AppContainer = styled.div`
   color: ${({ theme }) => theme.color.white};
   background-color: ${({ theme }) => theme.color.black};
+  .wrapper {
+    ${flexCenter};
+    flex-direction: column;
+  }
 `;
 
 const ThemeToggle = styled.div<{ isDark: boolean }>`

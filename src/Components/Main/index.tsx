@@ -155,14 +155,14 @@ const Wrapper = styled(Container)`
     }
   }
   .links {
-    margin-top: 7rem;
+    margin-top: 12rem;
     display: flex;
     gap: 1.5rem;
     padding-bottom: 1.4rem;
     cursor: pointer;
   }
   .info {
-    margin-top: 4rem;
+    margin-top: 6rem;
     font-weight: 500;
     font-size: 1.8rem;
     line-height: 2.2rem;
