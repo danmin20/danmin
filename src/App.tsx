@@ -6,6 +6,7 @@ import Record from "./Components/Record";
 import Slider from "./Components/Slider";
 import { lightTheme, darkTheme, flexCenter } from "./styles/theme";
 import styled, { ThemeProvider } from "styled-components";
+import Card from "./Components/Project/Card";
 
 function App() {
   const [slider, setSlider] = useState(true);
@@ -32,6 +33,7 @@ function App() {
             <Slider />
           ) : (
             <div className="wrapper">
+              <Card />
               <Main />
               <Intro />
               <Record />
