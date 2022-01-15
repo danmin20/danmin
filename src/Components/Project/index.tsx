@@ -127,9 +127,14 @@ const projects = [
 
 const Project = () => {
   useEffect(() => {
-    const handleScroll = () => {
-      const title1 = document.querySelector(".title-opacity")!;
+    const wrapper = document.querySelector(
+      "#project-wrapper"
+    ) as HTMLDivElement;
+    const title1 = document.querySelector("#title-opacity") as HTMLDivElement;
+    const title2 = document.querySelector("#title") as HTMLDivElement;
+    const projects = document.querySelector(".projects") as HTMLDivElement;
 
+    const handleScroll = () => {
       if (window.scrollY > 3500) {
         title1.classList.add("project-title-animation");
       } else {
@@ -138,18 +143,41 @@ const Project = () => {
     };
     window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    const handleMouseMove = (e: MouseEvent) => {
+      let xAxis = (window.innerWidth - e.pageX) / 100;
+      let yAxis = (window.innerHeight - e.pageY) / 100;
+      title1.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg) rotateZ(2deg)`;
+    };
+    const handleMouseEnter = () => {
+      wrapper.style.transition = "none";
+    };
+    const handleMouseLeave = () => {
+      wrapper.style.transition = "all 0.5s ease";
+      wrapper.style.transform = `rotateY(0deg) rotateX(0deg)`;
+      title1.style.transform = "translateZ(0px)";
+      title2.style.transform = "translateZ(0px)";
+    };
+    wrapper.addEventListener("mousemove", handleMouseMove);
+    wrapper.addEventListener("mouseenter", handleMouseEnter);
+    wrapper.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      wrapper.removeEventListener("scroll", handleScroll);
+      title1.removeEventListener("mousemove", handleMouseMove);
+      title2.removeEventListener("mouseenter", handleMouseEnter);
+      projects.removeEventListener("mouseleave", handleMouseLeave);
+    };
   }, []);
 
   return (
-    <Wrapper>
-      <div className="title-opacity">
+    <Wrapper id="project-wrapper">
+      <div id="title-opacity" className="title-opacity">
         {"PROJECTS".split("").map((v) => (
           <div>{v}</div>
         ))}
       </div>
       <div className="container">
-        <div className="title">
+        <div id="title" className="title">
           {"PROJECTS".split("").map((v) => (
             <div>{v}</div>
           ))}
@@ -158,7 +186,6 @@ const Project = () => {
         <div className="projects">
           {projects.map((project) => (
             <ProjectBox
-              // className="box"
               link={project.link ? true : false}
               onClick={() => project.link && window.open(project.link)}
             >
@@ -228,8 +255,6 @@ const Wrapper = styled(Container)`
       gap: 4rem;
       margin-top: 7rem;
       padding-bottom: 20rem;
-      .box {
-      }
     }
   }
   .copyright {
