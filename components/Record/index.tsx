@@ -11,7 +11,7 @@ const records = [
         title: "Woowa Brothers Corp.",
         kr: "우아한형제들",
         info: "Front-end development group",
-        date: "Expected to join at 2022.01.04",
+        date: "2022.01.04-now",
       },
     ],
   },
