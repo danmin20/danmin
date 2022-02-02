@@ -1,8 +1,9 @@
 import { createGlobalStyle } from "styled-components";
-import "./reset.scss";
+import { reset } from "styled-reset";
 import { flexCenter, media } from "./theme";
 
 export const GlobalStyle = createGlobalStyle`
+    ${reset}
     :focus {
         outline: none;
         border: none;

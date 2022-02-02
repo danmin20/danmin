@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Container, flexCenter } from "../../styles/theme";
+import { nanoid } from "nanoid";
 
 const records = [
   {
@@ -93,11 +94,11 @@ const Record = () => {
   return (
     <Wrapper>
       {records.map((record) => (
-        <div className="container">
+        <div key={nanoid()} className="container">
           <div>
             <Title title={record.id}>{record.id}</Title>
             {record.contents.map((content) => (
-              <div className="box">
+              <div className="box" key={nanoid()}>
                 <div className="title">
                   <div>{content.title}</div>
                   <div className="kr">{content.kr}</div>

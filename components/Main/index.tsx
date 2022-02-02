@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import styled, { keyframes } from "styled-components";
-import { Danmin } from "../../assets";
 import { Container } from "../../styles/theme";
 
 const links = [
@@ -48,7 +47,7 @@ const Main = () => {
 
   return (
     <Wrapper id="main">
-      <Danmin />
+      <img src="images/danmin.svg" />
       <div id="title-1" className="title">
         DANMIN
       </div>

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 import { Container, flexCenter } from "../../styles/theme";
+import { nanoid } from "nanoid";
 
 const projects = [
   {
@@ -145,20 +146,20 @@ const Project = () => {
     <Wrapper>
       <div className="title-opacity">
         {"PROJECTS".split("").map((v) => (
-          <div>{v}</div>
+          <div key={nanoid()}>{v}</div>
         ))}
       </div>
       <div className="container">
         <div className="title">
           {"PROJECTS".split("").map((v) => (
-            <div>{v}</div>
+            <div key={nanoid()}>{v}</div>
           ))}
         </div>
 
         <div className="projects">
           {projects.map((project) => (
             <ProjectBox
-              // className="box"
+              key={nanoid()}
               link={project.link ? true : false}
               onClick={() => project.link && window.open(project.link)}
             >
