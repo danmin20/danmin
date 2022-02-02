@@ -40,6 +40,7 @@ class MyDocument extends Document {
         <Head>
           <meta charSet="utf-8" />
           <link rel="icon" href="/favicon.ico" />
+
           <meta property="og:title" content="DANMIN | 이정민" />
           <meta property="og:image" content="/og-main.png" />
           <meta
@@ -47,16 +48,17 @@ class MyDocument extends Document {
             content="Front-end Developer Lee Jeongmin's Protfolio Website"
           />
           <meta property="og:url" content="//jeong-min.com" />
-          <meta name="description" content="DANMIN | 이정민" />
+
           <meta
             name="keywords"
-            content="프로그래머, 개발자, 프론트엔드, 단민, danmin, 이정민, lee jeongmin"
+            content="개발자 이정민, 프로그래머 이정민, 개발자, 프론트엔드 이정민, 단민, 개발자 단민, danmin, 이정민, lee jeongmin, lee jeong min"
           />
-          <meta name="theme-color" content="#000000" />
           <meta
             name="description"
             content="Website made by DANMIN (Lee jeongmin)"
           />
+          <meta name="theme-color" content="#000000" />
+
           <link
             href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap"
             rel="preload"
