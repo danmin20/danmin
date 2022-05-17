@@ -4,7 +4,7 @@ import { Container } from "../../styles/theme";
 
 const links = [
   { id: "github", link: "https://github.com/danmin20" },
-  { id: "blog", link: "https://velog.io/@danmin20" },
+  { id: "blog", link: "https://danminblog.tistory.com/" },
   {
     id: "resume",
     link: "https://danmin20.notion.site/Resume-fb4101f716404d17a4af40b721f4b9c6",
@@ -47,7 +47,7 @@ const Main = () => {
 
   return (
     <Wrapper id="main">
-      <img src="images/danmin.svg" />
+      <img alt="danmin" src="images/danmin.svg" />
       <div id="title-1" className="title">
         DANMIN
       </div>
@@ -136,6 +136,10 @@ const Wrapper = styled(Container)`
     position: absolute;
     right: 5rem;
   }
+  img {
+    position: absolute;
+    z-index: 100;
+  }
   .title {
     position: sticky;
     top: 0;
@@ -159,6 +163,7 @@ const Wrapper = styled(Container)`
     gap: 1.5rem;
     padding-bottom: 1.4rem;
     cursor: pointer;
+    position: relative;
   }
   .info {
     margin-top: 6rem;
