@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import Image from "next/image";
 import styled, { keyframes } from "styled-components";
 import { Container } from "../../styles/theme";
 
@@ -47,7 +48,15 @@ const Main = () => {
 
   return (
     <Wrapper id="main">
-      <img alt="danmin" src="images/danmin.svg" />
+      <div className="img">
+        <Image
+          className="img"
+          alt="danmin"
+          src="/images/danmin.svg"
+          width="252"
+          height="523"
+        />
+      </div>
       <div id="title-1" className="title">
         DANMIN
       </div>
@@ -136,7 +145,7 @@ const Wrapper = styled(Container)`
     position: absolute;
     right: 5rem;
   }
-  img {
+  .img {
     position: absolute;
     z-index: 100;
   }
