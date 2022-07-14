@@ -84,7 +84,7 @@ const records = [
         title: "Like Lion",
         kr: "멋쟁이사자처럼",
         info: "College student start-up IT club",
-        date: "2020.08-2020.06",
+        date: "2020.03-2020.06",
       },
     ],
   },
