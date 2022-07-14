@@ -7,7 +7,7 @@ const links = [
   { id: "blog", link: "https://danminblog.tistory.com/" },
   {
     id: "resume",
-    link: "https://danmin20.notion.site/Resume-fb4101f716404d17a4af40b721f4b9c6",
+    link: "https://www.figma.com/file/dtkCl6G7G5DVe18DN2LWny/%EC%9D%B4%EC%A0%95%EB%AF%BC-%EC%9D%B4%EB%A0%A5%EC%84%9C?node-id=0%3A1",
   },
   {
     id: "linkedin",
