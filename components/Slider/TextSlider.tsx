@@ -1,4 +1,5 @@
 import styled, { keyframes } from "styled-components";
+import { media } from "../../styles/theme";
 
 const TextSlider = () => (
   <Wrapper>
@@ -59,6 +60,12 @@ const Wrapper = styled.div`
       text-align: center;
       font-weight: 900;
       box-sizing: border-box;
+
+      ${media.mobile} {
+        font-size: 5rem;
+        line-height: 5rem;
+      }
+
       &:nth-child(2) {
         color: transparent;
         -webkit-text-stroke: 0.1rem ${({ theme }) => theme.color.white};

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import styled, { keyframes } from "styled-components";
-import { Container } from "../../styles/theme";
+import { Container, media } from "../../styles/theme";
 
 const links = [
   { id: "github", link: "https://github.com/danmin20" },
@@ -47,15 +47,12 @@ const Main = () => {
   }, []);
 
   return (
-    <Wrapper id="main">
-      <div className="img">
-        <Image
-          className="img"
-          alt="danmin"
-          src="/images/danmin.svg"
-          width="252"
-          height="523"
-        />
+    <Wrapper>
+      <div className="img pc-only">
+        <Image alt="danmin" src="/images/danmin.svg" width="252" height="523" />
+      </div>
+      <div className="img mobile-only">
+        <Image alt="danmin" src="/images/danmin.svg" width="200" height="400" />
       </div>
       <div id="title-1" className="title">
         DANMIN
@@ -141,14 +138,21 @@ const Info = styled.div<{ idx: number }>`
 const Wrapper = styled(Container)`
   padding-top: 9rem;
   position: relative;
-  svg {
-    position: absolute;
-    right: 5rem;
+
+  ${media.mobile} {
+    #title-2 {
+      margin-top: 3rem;
+    }
   }
+
   .img {
     position: absolute;
     z-index: 100;
+    ${media.mobile} {
+      right: 0;
+    }
   }
+
   .title {
     position: sticky;
     top: 0;
@@ -159,6 +163,13 @@ const Wrapper = styled(Container)`
     letter-spacing: 0.12em;
     white-space: pre-line;
     animation: ${titleAnimation} 0.5s;
+
+    ${media.mobile} {
+      font-size: 5rem;
+      letter-spacing: 0;
+      line-height: 5rem;
+    }
+
     &:nth-child(3) {
       text-align: end;
       -webkit-text-stroke: 0.1rem ${({ theme }) => theme.color.white};
@@ -173,6 +184,12 @@ const Wrapper = styled(Container)`
     padding-bottom: 1.4rem;
     cursor: pointer;
     position: relative;
+
+    ${media.mobile} {
+      margin-top: 22rem;
+      justify-content: center;
+      padding-bottom: 0.5rem;
+    }
   }
   .info {
     margin-top: 6rem;
@@ -181,6 +198,14 @@ const Wrapper = styled(Container)`
     line-height: 2.2rem;
     div {
       margin-top: 1.4rem;
+    }
+
+    ${media.mobile} {
+      font-size: 1.3rem;
+      line-height: 2rem;
+      div {
+        margin-top: 1rem;
+      }
     }
   }
 
