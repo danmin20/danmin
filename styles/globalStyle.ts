@@ -12,9 +12,6 @@ export const GlobalStyle = createGlobalStyle`
         display: none;
     }
     html {
-        ${media.tablet} {
-            font-size: 5px;
-        }
         font-size: 10px;
         -webkit-text-size-adjust: none;
         font-family: Montserrat;
@@ -28,24 +25,15 @@ export const GlobalStyle = createGlobalStyle`
         body {
             margin: 0;
         }
-        .App {
-            ${media.tablet} {
+        .pc-only {
+            ${media.mobile} {
                 display: none;
             }
         }
-        .none {
+        .mobile-only{
             display: none;
-            
-            ${media.tablet} {
+            ${media.mobile} {
                 display: block;
-                ${flexCenter};
-                width: 100%;
-                height: 100vh;
-                font-size: 10rem;
-                font-weight: 900;
-                white-space: pre-wrap;
-                padding: 2rem;
-                box-sizing: border-box;
             }
         }
     }

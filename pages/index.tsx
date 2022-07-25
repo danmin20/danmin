@@ -20,7 +20,7 @@ const Home: NextPage = () => {
 
   return (
     <AppContainer>
-      <div className="App">
+      <div>
         {slider ? (
           <Slider />
         ) : (
@@ -31,13 +31,6 @@ const Home: NextPage = () => {
             <Project />
           </div>
         )}
-      </div>
-      <div className="none">
-        <div>{`PleaSe
- aCCeSS
-  On a
-   Wider
-    SCreen.`}</div>
       </div>
     </AppContainer>
   );
