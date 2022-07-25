@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import styled from "styled-components";
-import { Container, flexCenter } from "../../styles/theme";
+import { Container, flexCenter, media } from "../../styles/theme";
 
 const Intro = () => {
   useEffect(() => {
@@ -48,9 +48,22 @@ const Wrapper = styled(Container)`
   line-height: 2.9rem;
   gap: 30rem;
 
+  ${media.mobile} {
+    padding-top: 20rem;
+    padding-bottom: 20rem;
+    font-size: 1.5rem;
+    gap: 20rem;
+    line-height: 2rem;
+  }
+
   & > div {
     width: 97.1rem;
     opacity: 0;
+
+    ${media.mobile} {
+      width: 100%;
+    }
+
     &:nth-child(2) {
       text-align: center;
       font-weight: 500;
