@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Container, flexCenter } from "../../styles/theme";
+import { Container, flexCenter, media } from "../../styles/theme";
 import { nanoid } from "nanoid";
 
 const records = [
@@ -120,15 +120,32 @@ const Wrapper = styled(Container)`
     height: 70rem;
     position: sticky;
     top: 10rem;
+
+    ${media.mobile} {
+      background-color: #000;
+      top: 5rem;
+      border-radius: 1.5rem;
+    }
+
     .box {
       width: 35rem;
       margin-top: 5rem;
+
+      ${media.mobile} {
+        margin-top: 3rem;
+      }
+
       .title {
         ${flexCenter};
         justify-content: space-between;
         font-weight: 500;
         font-size: 2.4rem;
         line-height: 2.9rem;
+
+        ${media.mobile} {
+          font-size: 2rem;
+        }
+
         .kr {
           font-weight: 300;
           font-size: 1.2rem;
@@ -139,6 +156,10 @@ const Wrapper = styled(Container)`
         margin-top: 0.4rem;
         font-size: 1.8rem;
         line-height: 2.2rem;
+
+        ${media.mobile} {
+          font-size: 1.5rem;
+        }
       }
       .date {
         margin-top: 0.4rem;
@@ -173,6 +194,12 @@ const Title = styled.div<{ title: string }>`
   color: transparent;
   -webkit-text-stroke: 0.1rem ${({ theme }) => theme.color.white};
   position: relative;
+
+  ${media.mobile} {
+    font-size: 5rem;
+    margin-top: 1rem;
+  }
+
   ::after {
     content: "${({ title }) => `${title}`}";
     position: absolute;
@@ -180,6 +207,11 @@ const Title = styled.div<{ title: string }>`
     top: -0.4rem;
     -webkit-text-stroke: 0.1rem ${({ theme }) => theme.color.red};
     opacity: 0.7;
+
+    ${media.mobile} {
+      left: -0.2rem;
+      top: -0.2rem;
+    }
   }
   ::before {
     content: "${({ title }) => `${title}`}";
@@ -188,6 +220,11 @@ const Title = styled.div<{ title: string }>`
     top: 0.4rem;
     -webkit-text-stroke: 0.1rem ${({ theme }) => theme.color.blue};
     opacity: 0.7;
+
+    ${media.mobile} {
+      left: 0.2rem;
+      top: 0.2rem;
+    }
   }
 `;
 
