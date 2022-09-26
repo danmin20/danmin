@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import styled, { keyframes } from "styled-components";
-import { Container, flexCenter } from "../../styles/theme";
+import { Container, flexCenter, media } from "../../styles/theme";
 import { nanoid } from "nanoid";
 
 const projects = [
@@ -9,24 +9,6 @@ const projects = [
     kr: "당장모아",
     content: "당근마켓 MVP 인턴십에서 진행한 4주간의 프로젝트",
     link: "https://github.com/karrotmvp/mymap",
-  },
-  {
-    id: "ET’s Stationery",
-    kr: "ET네 만물상",
-    content: "우아한테크캠프 4기에서 진행한 3주간의 프로젝트",
-    link: "https://github.com/woowa-techcamp-2021/store-7",
-  },
-  {
-    id: "Woowahan account book",
-    kr: "우아한 가계부",
-    content: "우아한테크캠프 4기에서 진행한 2주간의 프로젝트",
-    link: "https://github.com/woowa-techcamp-2021/cashbook-14",
-  },
-  {
-    id: "Woowa market",
-    kr: "우아마켓",
-    content: "우아한테크캠프 4기에서 진행한 2주간의 프로젝트",
-    link: "https://github.com/woowa-techcamp-2021/deal-12",
   },
   {
     id: "Reservation/order history map",
@@ -65,18 +47,6 @@ const projects = [
     link: "https://github.com/depromeet/8th-final-front-6team",
   },
   {
-    id: "FMS admin website",
-    kr: "fms 어드민 웹사이트",
-    content: "트웬티온스에서 진행한 외주 작업",
-    // link: "",
-  },
-  {
-    id: "FMS web app for workers ",
-    kr: "fms 근무자용 웹앱",
-    content: "트웬티온스에서 진행한 외주 작업",
-    // link: "",
-  },
-  {
     id: "Depromeet website",
     kr: "디프만 공식 웹사이트",
     content: "디프만 9기 때 만든 공식 웹사이트",
@@ -93,36 +63,6 @@ const projects = [
     kr: "토맛토",
     content: "디프만 9기에서 진행한 밸런스 게임 프로젝트",
     link: "https://github.com/depromeet/9th_1team_FE",
-  },
-  {
-    id: "Gif generator",
-    kr: "Gif 생성 서비스",
-    content: "대학생 때 진행한 캡스톤디자인1 프로젝트",
-    link: "https://github.com/danmin20/gif-generator",
-  },
-  {
-    id: "My Book",
-    kr: "마이북",
-    content: "대학생 때 진행한 리액트 네이티브 프로젝트",
-    link: "https://github.com/danmin20/MyBook-app",
-  },
-  {
-    id: "My Movie",
-    kr: "마이무비",
-    content: "대학생 때 진행한 리액트 프로젝트",
-    link: "https://github.com/danmin20/MyMovie-web",
-  },
-  {
-    id: "To Do",
-    kr: "투두",
-    content: "대학생 때 진행한 리액트 프로젝트",
-    link: "https://github.com/danmin20/todo_app",
-  },
-  {
-    id: "Whether Wheather",
-    kr: "웨더웨더",
-    content: "대학생 때 진행한 리액트 네이티브 프로젝트",
-    link: "https://github.com/danmin20/weather_app",
   },
 ];
 
@@ -169,32 +109,54 @@ const Project = () => {
             </ProjectBox>
           ))}
         </div>
-        <div className="copyright">Copyright © 2021 Lee Jeongmin</div>
+
+        <div className="projects-shadow" />
+        <div className="projects-shadow-2" />
+
+        <div className="projects-mobile">
+          {projects.map((project) => (
+            <ProjectBox
+              key={nanoid()}
+              link={project.link ? true : false}
+              onClick={() => project.link && window.open(project.link)}
+            >
+              <div className="project-title">{project.id}</div>
+              <div className="project-title kr">{project.kr}</div>
+              <div className="content">{project.content}</div>
+            </ProjectBox>
+          ))}
+        </div>
       </div>
+      <div className="copyright">Copyright © 2021 Lee Jeongmin</div>
     </Wrapper>
   );
 };
 
 const titleAnimation = keyframes`
   0% {
-    margin-top: 100rem;
+    margin-top: 100vh;
   }
   100% {
-    margin-top: -90rem;
+    margin-top: -65rem;
   }
 `;
 
 const Wrapper = styled(Container)`
   margin-top: 35rem;
-  height: 110rem;
+  height: 85rem;
   overflow: hidden;
   position: relative;
   ${flexCenter};
+
+  ${media.mobile} {
+    margin-top: 10rem;
+  }
+
   .project-title-animation {
     animation: ${titleAnimation} 2s forwards;
   }
   .title-opacity {
-    margin-top: 20rem;
+    margin-top: 100vh;
     width: 100%;
     ${flexCenter};
     justify-content: space-between;
@@ -207,11 +169,21 @@ const Wrapper = styled(Container)`
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
+    ${media.mobile} {
+      font-size: 5rem;
+    }
   }
   .container {
     position: absolute;
     top: 8rem;
     width: 98rem;
+
+    ${media.mobile} {
+      top: 3rem;
+      width: 100%;
+    }
+
     .title {
       width: 100%;
       ${flexCenter};
@@ -221,6 +193,12 @@ const Wrapper = styled(Container)`
       line-height: 7.8rem;
       width: 100%;
       text-align: center;
+
+      ${media.mobile} {
+        font-size: 3rem;
+        justify-content: space-around;
+        margin-top: 3rem;
+      }
     }
 
     .projects {
@@ -228,8 +206,47 @@ const Wrapper = styled(Container)`
       grid-template-columns: repeat(4, 1fr);
       gap: 4rem;
       margin-top: 7rem;
-      padding-bottom: 20rem;
       align-items: start;
+
+      ${media.mobile} {
+        display: none;
+      }
+    }
+
+    .projects-shadow {
+      width: 100%;
+      height: 5rem;
+      top: 10rem;
+      z-index: 100;
+      left: 0;
+      position: absolute;
+      background: linear-gradient(#000, #00000000);
+    }
+    .projects-shadow-2 {
+      width: 100%;
+      height: 5rem;
+      bottom: -1rem;
+      z-index: 100;
+      left: 0;
+      position: absolute;
+      background: linear-gradient(#00000000, #000);
+    }
+
+    .projects-mobile {
+      display: none;
+      ${media.mobile} {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0 5rem;
+        padding-top: 3rem;
+        padding-bottom: 2rem;
+        box-sizing: border-box;
+        overflow-y: scroll;
+        height: 70vh;
+        gap: 2rem;
+        position: relative;
+      }
     }
   }
   .copyright {
@@ -239,11 +256,17 @@ const Wrapper = styled(Container)`
     font-weight: 300;
     font-size: 1.4rem;
     line-height: 1.7rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
   }
 `;
 
 const ProjectBox = styled.div<{ link: boolean }>`
   width: 100%;
+  ${media.mobile} {
+    width: auto;
+  }
   cursor: ${({ link }) => (link ? "pointer" : "default")};
   div {
     width: 100%;
